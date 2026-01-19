@@ -1,3 +1,6 @@
 {
-  "name": "MonumentGames.PlayerInventory.Editor"
+  "name": "MonumentGames.PlayerInventory.Editor",
+  "references": [
+    "MonumentGames.PlayerInventory"
+  ]
 }
