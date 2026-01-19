@@ -1,4 +1,5 @@
 using UnityEngine;
+using MonumentGames.Config;
 
 namespace MonumentGames.PlayerInventory
 {
