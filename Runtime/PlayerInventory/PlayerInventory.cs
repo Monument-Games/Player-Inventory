@@ -1,8 +1,9 @@
 using UnityEngine;
-using MonumentGames.Config;
 
 namespace MonumentGames.PlayerInventory
 {
+    using Config;
+    
     public class PlayerInventory : MonoBehaviour
     {
         [SerializeField] Camera cam;
