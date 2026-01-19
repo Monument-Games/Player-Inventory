@@ -1,3 +1,6 @@
 {
-  "name": "MonumentGames.PlayerInventory"
+  "name": "MonumentGames.PlayerInventory",
+  "references": [
+    "MonumentGames.Config"
+  ]
 }
