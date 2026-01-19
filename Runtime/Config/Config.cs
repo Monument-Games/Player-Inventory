@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MonumentGames.Config
 {
-    public virtual class Config : MonoBehaviour
+    public abstract class Config : MonoBehaviour
     {
         public static Config cfg;
 
