@@ -1,0 +1,10 @@
+{
+  "name": "com.monumentgames.playerinventory",
+  "version": "1.0.0",
+  "displayName": "Player Inventory",
+  "description": "A basic player inventory with one slot",
+  "unity": "6000.2",
+  "author": {
+    "name": "Louisa Valerie Müller"
+  }
+}
