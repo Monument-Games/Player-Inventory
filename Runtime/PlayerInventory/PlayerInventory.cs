@@ -16,20 +16,21 @@ namespace MonumentGames.PlayerInventory
 
         void Update()
         {
-            if (Input.GetKeyDown(Config.cfg.pickUpKey) && handheld == null)
+            if (Input.GetKeyDown(Config.cfg.pickUpKey))
             {
-                CheckForItem();
-            }
-            else if (Input.GetKeyDown(Config.cfg.pickUpKey))
-            {
-                if (!CheckForDropoff())
+                if (CheckForItem())
                 {
-                    DropItem();
+                    return;
                 }
+                if (CheckForDropoff())
+                {
+                    return;
+                }
+                DropItem();
             }
         }
 
-        void CheckForItem()
+        bool CheckForItem()
         {
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
