@@ -12,6 +12,8 @@ namespace MonumentGames.Config
         [Header("Player Interaction")] 
         public float interactionRange = 2f;
 
+        public float itemForce = 10f;
+
         public void Awake()
         {
             if (Config.cfg != this && Config.cfg != null)

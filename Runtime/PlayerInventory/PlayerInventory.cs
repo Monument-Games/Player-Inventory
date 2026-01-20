@@ -45,8 +45,7 @@ namespace MonumentGames.PlayerInventory
             // Put Item to camera and disable Physics and Collision
             handheld = item;
             handheld.transform.SetParent(transform.GetChild(0));
-            handheld.GetComponent<Rigidbody>().useGravity = false;
-            handheld.GetComponent<BoxCollider>().enabled = false;
+            handheld.DisableCollision();
 
             // Reset Rotation and Position of Item
             handheld.transform.localPosition = new Vector3(0, 0, 0);
@@ -59,7 +58,11 @@ namespace MonumentGames.PlayerInventory
 
         void DropItem()
         {
-
+            Vector3 forward = transform.TransformDirection(Vector3.forward);
+            handheld.GetComponent<Rigidbody>().AddForce(forward * Config.cfg.itemForce);
+            handheld.transform.SetParent(null);
+            StartCoroutine(handheld.EnableCollision());
+            handheld = null;
         }
 
         void TryPlaceItem()

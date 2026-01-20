@@ -15,9 +15,17 @@ namespace MonumentGames.PlayerInventory
             return Quaternion.Euler(camRotation);
         }
 
-        public void Update()
+        public void DisableCollision()
         {
-            Debug.Log(transform.localPosition);
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<BoxCollider>().enabled = false;
+        }
+
+        public IEnumerator EnableCollision()
+        {
+            yield return new WaitForSeconds(1f);
+            GetComponent<Rigidbody>().useGravity = true;
+            GetComponent<BoxCollider>().enabled = true;
         }
     }
 }
