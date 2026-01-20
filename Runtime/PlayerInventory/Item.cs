@@ -11,9 +11,14 @@ namespace MonumentGames.PlayerInventory
         public Vector3 camOffset;
         public Vector3 camRotation;
 
-        public Quaternion getCamRotation()
+        public Quaternion GetRotation()
         {
             return Quaternion.Euler(camRotation);
+        }
+        
+        public Quaternion GetRotation(Vector3 rotation)
+        {
+            return Quaternion.Euler(rotation);
         }
 
         public void DisableCollision()

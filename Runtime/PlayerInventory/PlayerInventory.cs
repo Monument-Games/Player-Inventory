@@ -16,21 +16,41 @@ namespace MonumentGames.PlayerInventory
 
         void Update()
         {
-            if (Input.GetKeyDown(Config.cfg.pickUpKey))
+            if (Input.GetKeyDown(Config.cfg.pickUpKey) && handheld == null)
             {
-                Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-
-                if (Physics.Raycast(ray, out RaycastHit info, Config.cfg.interactionRange))
+                CheckForItem();
+            }
+            else if (Input.GetKeyDown(Config.cfg.pickUpKey))
+            {
+                if (!CheckForDropoff())
                 {
-                    switch (info.transform.tag)
-                    {
-                        case "Item":
-                            TryPickupItem(info.transform.gameObject.GetComponent<Item>());
-                            break;
-                        case "Placeable Area":
-                            TryPlaceItem();
-                            break;
-                    }
+                    DropItem();
+                }
+            }
+        }
+
+        void CheckForItem()
+        {
+            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+            if (Physics.Raycast(ray, out RaycastHit info, Config.cfg.interactionRange))
+            {
+                if (info.transform.tag.Equals("Item"))
+                {
+                    TryPickupItem(info.transform.gameObject.GetComponent<Item>());
+                }
+            }
+        }
+
+        bool CheckForDropoff()
+        {
+            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+            if (Physics.Raycast(ray, out RaycastHit info, Config.cfg.interactionRange))
+            {
+                if (info.transform.tag.Equals("Dropoff"))
+                {
+                    TryPlaceItem(info.transform.gameObject.GetComponent<DropoffArea>());
                 }
             }
         }
@@ -53,7 +73,7 @@ namespace MonumentGames.PlayerInventory
 
             // Apply Item specific offset
             handheld.transform.localPosition = handheld.camOffset;
-            handheld.transform.localRotation = handheld.getCamRotation();
+            handheld.transform.localRotation = handheld.GetRotation();
         }
 
         void DropItem()
@@ -65,9 +85,10 @@ namespace MonumentGames.PlayerInventory
             handheld = null;
         }
 
-        void TryPlaceItem()
+        void TryPlaceItem(DropoffArea area)
         {
-
+            area.AddItem(handheld);
+            handheld = null;
         }
     }
 }
