@@ -23,7 +23,7 @@ namespace MonumentGames.PlayerInventory
             currentItem.transform.localPosition = itemOffset;
             currentItem.transform.localRotation = currentItem.GetRotation(itemRotation);
 
-            layer = LayerMask.NameToLayer("Ignore Raycast");
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         }
     }
 }

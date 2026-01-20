@@ -51,8 +51,11 @@ namespace MonumentGames.PlayerInventory
                 if (info.transform.tag.Equals("Dropoff"))
                 {
                     TryPlaceItem(info.transform.gameObject.GetComponent<DropoffArea>());
+                    return true;
                 }
             }
+
+            return false;
         }
 
         void TryPickupItem(Item item)
