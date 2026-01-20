@@ -22,9 +22,8 @@ namespace MonumentGames.PlayerInventory
             GetComponent<BoxCollider>().enabled = false;
         }
 
-        public IEnumerator EnableCollision()
+        public void EnableCollision()
         {
-            yield return new WaitForSeconds(1f);
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<BoxCollider>().enabled = true;
         }
