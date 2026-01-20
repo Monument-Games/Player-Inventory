@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MonumentGames.PlayerInventory
 {
-    [RequireComponent(BoxCollider)]
+    [RequireComponent(typeof(BoxCollider))]
     public class DropoffArea : MonoBehaviour
     {
         public Vector3 itemOffset;
