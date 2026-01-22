@@ -37,5 +37,9 @@ namespace MonumentGames.PlayerInventory
 
             gameObject.layer = LayerMask.NameToLayer("Default");
         }
+
+        public Item GetCurrentItem() {
+            return currentItem;
+        }
     }
 }
