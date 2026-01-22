@@ -2,7 +2,7 @@
     "name": "MonumentGames.PlayerInventory",
     "rootNamespace": "",
     "references": [
-        "GUID:5f7a0767c1fe08c7db879d8d868bdd85"
+        "MonumentGames.Config"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

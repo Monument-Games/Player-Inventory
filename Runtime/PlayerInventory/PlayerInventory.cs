@@ -69,6 +69,10 @@ namespace MonumentGames.PlayerInventory
                 DropItem();
             }
 
+            if (handheld.GetDropoffArea() != null) {
+                handheld.GetDropoffArea().RemoveItem();
+            }
+
             // Put Item to camera and disable Physics and Collision
             handheld = item;
             handheld.transform.SetParent(transform.GetChild(0));

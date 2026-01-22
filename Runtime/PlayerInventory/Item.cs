@@ -10,6 +10,8 @@ namespace MonumentGames.PlayerInventory
     {
         public Vector3 camOffset;
         public Vector3 camRotation;
+        private bool onDropoff;
+        private DropoffArea area = null;
 
         public Quaternion GetRotation()
         {
@@ -31,6 +33,22 @@ namespace MonumentGames.PlayerInventory
         {
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<BoxCollider>().enabled = true;
+        }
+
+        public void SetDropoffArea(DropoffArea area) {
+            this.area = area;
+        }
+
+        public DropoffArea GetDropoffArea() {
+            return area;
+        }
+
+        public void SetOnDropoff(bool val) {
+            onDropoff = val;
+        }
+
+        public bool GetOnDropoff() {
+            return onDropoff;
         }
     }
 }
