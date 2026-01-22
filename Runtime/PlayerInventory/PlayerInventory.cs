@@ -67,9 +67,6 @@ namespace MonumentGames.PlayerInventory
             if (handheld != null)
             {
                 DropItem();
-                if (handheld.GetDropoffArea() != null) {
-                    handheld.GetDropoffArea().RemoveItem();
-                }
             }
 
             // Put Item to camera and disable Physics and Collision
@@ -84,6 +81,11 @@ namespace MonumentGames.PlayerInventory
             // Apply Item specific offset
             handheld.transform.localPosition = handheld.camOffset;
             handheld.transform.localRotation = handheld.GetRotation();
+
+            // Remove Dropoff Data, if picked up from DropoffArea
+            if (handheld.GetDropoffArea() != null) {
+                handheld.GetDropoffArea().RemoveItem();
+            }
         }
 
         void DropItem()
