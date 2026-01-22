@@ -67,10 +67,9 @@ namespace MonumentGames.PlayerInventory
             if (handheld != null)
             {
                 DropItem();
-            }
-
-            if (handheld.GetDropoffArea() != null) {
-                handheld.GetDropoffArea().RemoveItem();
+                if (handheld.GetDropoffArea() != null) {
+                    handheld.GetDropoffArea().RemoveItem();
+                }
             }
 
             // Put Item to camera and disable Physics and Collision
