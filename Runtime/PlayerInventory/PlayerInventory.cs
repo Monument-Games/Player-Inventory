@@ -88,6 +88,9 @@ namespace MonumentGames.PlayerInventory
 
         void DropItem()
         {
+            if (handheld == null)
+                return;
+
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             handheld.GetComponent<Rigidbody>().AddForce(forward * Config.cfg.itemForce);
             handheld.transform.SetParent(null);
