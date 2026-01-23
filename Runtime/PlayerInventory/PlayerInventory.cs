@@ -90,6 +90,9 @@ namespace MonumentGames.PlayerInventory
             if (handheld.GetDropoffArea() != null) {
                 handheld.GetDropoffArea().RemoveItem();
             }
+
+	    // Reset velocity of item to stay in hand
+	    handheld.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
         void DropItem()
