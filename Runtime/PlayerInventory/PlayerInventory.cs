@@ -92,6 +92,7 @@ namespace MonumentGames.PlayerInventory
             }
 
 	    // Reset velocity of item to stay in hand
+	    handheld.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 	    handheld.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
