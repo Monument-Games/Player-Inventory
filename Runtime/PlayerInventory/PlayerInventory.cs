@@ -16,6 +16,10 @@ namespace MonumentGames.PlayerInventory
 
         void Update()
         {
+	    if (handheld != null){
+		handheld.transform.localPosition = handheld.camOffset;
+	    }
+	
             if (Input.GetKeyDown(Config.cfg.pickUpKey))
             {
                 if (CheckForItem())
