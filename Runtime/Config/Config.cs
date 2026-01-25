@@ -8,7 +8,7 @@ namespace MonumentGames.Config
 
         [Header("Controls")] 
         public KeyCode pickUpKey = KeyCode.E;
-        public KeyCode sprintKey = KeyCode.Shift;
+        public KeyCode sprintKey = KeyCode.LeftShift;
 
         [Header("Player Interaction")] 
         public float interactionRange = 2f;
