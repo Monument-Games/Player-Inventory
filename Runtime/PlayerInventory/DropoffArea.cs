@@ -41,5 +41,9 @@ namespace MonumentGames.PlayerInventory
         public Item GetCurrentItem() {
             return currentItem;
         }
+
+        public bool HasItem() {
+            return currentItem != null;
+        }
     }
 }
